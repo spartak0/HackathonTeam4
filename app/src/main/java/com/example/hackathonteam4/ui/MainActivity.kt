@@ -22,7 +22,9 @@ import com.example.hackathonteam4.ui.navigation.NavGraph
 import com.example.hackathonteam4.ui.navigation.Screen
 import com.example.hackathonteam4.ui.scanner_screen.ScannerScreen
 import com.example.hackathonteam4.ui.theme.HackathonTeam4Theme
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
