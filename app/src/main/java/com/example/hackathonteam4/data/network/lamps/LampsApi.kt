@@ -5,6 +5,6 @@ import retrofit2.http.GET
 import retrofit2.http.Path
 
 interface LampsApi {
-    @GET("lamp/{barcode_id}")
+    @GET("api/v1/lamp/{barcode_id}")
     suspend fun getLamp(@Path("barcode_id") barcodeId: String) : GetLampResponseDto
 }
