@@ -4,6 +4,7 @@ buildscript {
         retrofit_version = '2.9.0'
         okhttp_version = '4.10.0'
         hilt_version = '2.44'
+        camera_version = '1.2.0-beta01'
     }
 }// Top-level build file where you can add configuration options common to all sub-projects/modules.
 plugins {
