@@ -1,3 +1,21 @@
 <resources>
     <string name="app_name">HackathonTeam4</string>
+    <string name="tf_barcode_input">Введите 13 цифр</string>
+    <string name="tf_scan_barcode">Сканировать штриход с помощью камеры</string>
+    <string name="input_barcode">Ввести штрихкод</string>
+    <string name="onboarding1">Это приложение для мартовского хакатона в Surf</string>
+    <string name="onboarding2">В приложении вы можете отсканировать штрих-код интересующей вас лампочки.</string>
+    <string name="onboarding3">Мы предоставим вам всю имеющуюся информацию по необходимой лампочке.</string>
+    <string name="onboarding4">Вы можете ввести штрих-код вручную или использовать камеру для сканирования.</string>
+    <string name="fetch_error">ОШИБКА!\nПопробуйте заново.</string>
+    <string name="description">Описание</string>
+    <string name="model">Модель</string>
+    <string name="brand">Бренд</string>
+    <string name="price">Цена</string>
+    <string name="power">Мощность</string>
+    <string name="work_with_backlight_indicator">Работа с задними индикаторам</string>
+    <string name="equivalent">Эквивалент</string>
+    <string name="colorTemp">Цветовая температура</string>
+    <string name="only_digits">Только цифры!</string>
+
 </resources>
