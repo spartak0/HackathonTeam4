@@ -1,7 +1,7 @@
 package com.example.hackathonteam4.di
 
 import com.example.hackathonteam4.data.network.lamps.LampsApi
-import com.example.hackathonteam4.utils.Consts
+import com.example.hackathonteam4.utils.Constants
 import com.squareup.moshi.Moshi
 import dagger.Module
 import dagger.Provides
@@ -34,7 +34,7 @@ object NetworkModule {
         client: OkHttpClient,
         moshi: Moshi
     ) : Retrofit = Retrofit.Builder()
-            .baseUrl(Consts.BASE_URL)
+            .baseUrl(Constants.BASE_URL)
             .client(client)
             .addConverterFactory(MoshiConverterFactory.create(moshi))
             .build()
