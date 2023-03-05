@@ -17,7 +17,6 @@ import com.example.hackathonteam4.R
 import com.example.hackathonteam4.ui.navigation.Screen
 import com.example.hackathonteam4.ui.theme.HackathonTeam4Theme
 import com.example.hackathonteam4.utils.Constants
-import kotlin.coroutines.coroutineContext
 
 @Composable
 fun SplashScreen(navController: NavController) {
