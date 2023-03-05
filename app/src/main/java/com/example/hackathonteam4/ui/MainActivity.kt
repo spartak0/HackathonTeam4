@@ -10,17 +10,13 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.core.content.ContextCompat
 import androidx.navigation.compose.rememberNavController
-import com.example.hackathonteam4.ui.mian_screen.MainScreen
 import com.example.hackathonteam4.ui.navigation.NavGraph
 import com.example.hackathonteam4.ui.navigation.Screen
-import com.example.hackathonteam4.ui.scanner_screen.ScannerScreen
 import com.example.hackathonteam4.ui.theme.HackathonTeam4Theme
 
 class MainActivity : ComponentActivity() {
@@ -28,12 +24,32 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             HackathonTeam4Theme {
+                val context = LocalContext.current
+                var hasCameraPermission by remember {
+                    mutableStateOf(
+                        ContextCompat.checkSelfPermission(
+                            context,
+                            Manifest.permission.CAMERA
+                        ) == PackageManager.PERMISSION_GRANTED
+                    )
+                }
+                val launcher = rememberLauncherForActivityResult(
+                    contract = ActivityResultContracts.RequestPermission(),
+                    onResult = { isGranted ->
+                        hasCameraPermission = isGranted
+                    })
 
+                LaunchedEffect(key1 = true) {
+                    launcher.launch(Manifest.permission.CAMERA)
+                }
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    NavGraph(navController = rememberNavController(), startDestination = Screen.SplashScreen.route)
+                    NavGraph(
+                        navController = rememberNavController(),
+                        startDestination = Screen.SplashScreen.route
+                    )
                 }
             }
         }

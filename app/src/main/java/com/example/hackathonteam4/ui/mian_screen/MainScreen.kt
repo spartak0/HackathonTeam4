@@ -1,6 +1,7 @@
 package com.example.hackathonteam4.ui.mian_screen
 
 import android.Manifest
+import android.annotation.SuppressLint
 import android.content.pm.PackageManager
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
@@ -16,6 +17,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.RectangleShape
+import androidx.compose.ui.modifier.modifierLocalConsumer
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -28,32 +30,40 @@ import com.example.hackathonteam4.ui.theme.HackathonTeam4Theme
 import com.example.hackathonteam4.ui.theme.spacing
 import com.example.hackathonteam4.R
 
+@OptIn(ExperimentalMaterial3Api::class)
+@SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
 fun MainScreen(navController: NavController) {
     HackathonTeam4Theme {
-        Column(
-            modifier = Modifier
-                .padding(horizontal = MaterialTheme.spacing.medium)
-                .fillMaxSize()
-                .background(MaterialTheme.colorScheme.background),
-            verticalArrangement = Arrangement.Center,
-            horizontalAlignment = Alignment.Start
-        ) {
-            Button(
-                onClick = { navController.navigate(Screen.ScannerScreen.route) },
-                modifier = Modifier
-                    .fillMaxWidth()
-            ) {
-                Text(text = stringResource(R.string.tf_scan_barcode))
-            }
-            Spacer(modifier = Modifier.height(MaterialTheme.spacing.medium))
-            Button(
-                onClick = { navController.navigate(Screen.HandleInputScreen.route)},
-                modifier = Modifier
-                    .fillMaxWidth()
-            ) {
-                Text(text = stringResource(R.string.input_barcode))
+        Scaffold(topBar = {}) {
+            Box(modifier =Modifier.fillMaxSize()){
+                Column(
+                    modifier = Modifier
+                        .padding(horizontal = MaterialTheme.spacing.medium)
+                        .background(MaterialTheme.colorScheme.background)
+                        .align(Alignment.Center),
+                    verticalArrangement = Arrangement.Center,
+                    horizontalAlignment = Alignment.Start,
+                ) {
+                    Button(
+                        onClick = { navController.navigate(Screen.ScannerScreen.route) },
+                        modifier = Modifier
+                            .fillMaxWidth()
+                    ) {
+                        Text(text = stringResource(R.string.tf_scan_barcode))
+                    }
+                    Spacer(modifier = Modifier.height(MaterialTheme.spacing.medium))
+                    Button(
+                        onClick = { navController.navigate(Screen.HandleInputScreen.route)},
+                        modifier = Modifier
+                            .fillMaxWidth()
+                    ) {
+                        Text(text = stringResource(R.string.input_barcode))
+                    }
+                }
             }
         }
+
+
     }
 }
