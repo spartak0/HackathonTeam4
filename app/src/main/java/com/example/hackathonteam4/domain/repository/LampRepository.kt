@@ -5,5 +5,5 @@ import kotlinx.coroutines.flow.Flow
 
 
 interface LampRepository {
-    suspend fun getCurrentLamp() : Flow<Lamp>
+    suspend fun getCurrentLamp(barcodeId: String) : Flow<Lamp>
 }
