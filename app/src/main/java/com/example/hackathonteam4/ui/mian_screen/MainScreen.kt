@@ -2,6 +2,7 @@ package com.example.hackathonteam4.ui.mian_screen
 
 import android.Manifest
 import android.annotation.SuppressLint
+import android.app.Activity
 import android.content.pm.PackageManager
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
@@ -29,14 +30,20 @@ import com.example.hackathonteam4.ui.navigation.Screen
 import com.example.hackathonteam4.ui.theme.HackathonTeam4Theme
 import com.example.hackathonteam4.ui.theme.spacing
 import com.example.hackathonteam4.R
+import com.example.hackathonteam4.ui.details.TopAppBar
 
 @OptIn(ExperimentalMaterial3Api::class)
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
 fun MainScreen(navController: NavController) {
+    val activity = LocalContext.current as? Activity
     HackathonTeam4Theme {
-        Scaffold(topBar = {}) {
-            Box(modifier =Modifier.fillMaxSize()){
+        Scaffold(topBar = {
+            TopAppBar {
+                activity?.finish()
+            }
+        }) {
+            Box(modifier = Modifier.fillMaxSize()) {
                 Column(
                     modifier = Modifier
                         .padding(horizontal = MaterialTheme.spacing.medium)
@@ -54,7 +61,7 @@ fun MainScreen(navController: NavController) {
                     }
                     Spacer(modifier = Modifier.height(MaterialTheme.spacing.medium))
                     Button(
-                        onClick = { navController.navigate(Screen.HandleInputScreen.route)},
+                        onClick = { navController.navigate(Screen.HandleInputScreen.route) },
                         modifier = Modifier
                             .fillMaxWidth()
                     ) {

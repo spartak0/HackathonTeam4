@@ -3,6 +3,7 @@ package com.example.hackathonteam4.ui.splash_screen
 import android.content.Context
 import android.os.Handler
 import android.os.Looper
+import android.util.Log
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
@@ -17,15 +18,14 @@ import com.example.hackathonteam4.R
 import com.example.hackathonteam4.ui.navigation.Screen
 import com.example.hackathonteam4.ui.theme.HackathonTeam4Theme
 import com.example.hackathonteam4.utils.Constants
+import com.example.hackathonteam4.utils.SharedPrefHandler
 
 @Composable
 fun SplashScreen(navController: NavController) {
     val context = LocalContext.current
     HackathonTeam4Theme {
         Handler(Looper.getMainLooper()).postDelayed({
-            val sharedPref =
-                context.getSharedPreferences(Constants.SHARED_PREF, Context.MODE_PRIVATE)
-            val wathingOnboarding = sharedPref.getBoolean(Constants.ON_BOARDING_VAL, false)
+            val wathingOnboarding = SharedPrefHandler(context).getBoolean(Constants.ONBOARDING_VAL)
             navController.navigate(if (!wathingOnboarding) Screen.OnboardingScreen.route else Screen.MainScreen.route) {
                 popUpTo(0)
             }

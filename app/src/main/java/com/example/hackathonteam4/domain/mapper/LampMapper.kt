@@ -1,12 +1,12 @@
 package com.example.hackathonteam4.domain.mapper
 
-import com.example.hackathonteam4.data.network.lamps.dto.GetLampResponseDto
+import com.example.hackathonteam4.data.network.lamps.dto.LampDto
 import com.example.hackathonteam4.domain.model.Lamp
 import com.example.hackathonteam4.utils.Mapper
 
-class LampMapper : Mapper<GetLampResponseDto, Lamp> {
-    override fun domainToDto(domain: Lamp): GetLampResponseDto = with(domain) {
-        return GetLampResponseDto(
+class LampMapper : Mapper<LampDto, Lamp> {
+    override fun domainToDto(domain: Lamp): LampDto = with(domain) {
+        return LampDto(
             brand,
             model,
             lampDescription,
@@ -26,7 +26,7 @@ class LampMapper : Mapper<GetLampResponseDto, Lamp> {
             actuality)
     }
 
-    override fun dtoToDomain(dto: GetLampResponseDto): Lamp = with(dto) {
+    override fun dtoToDomain(dto: LampDto): Lamp = with(dto) {
         return Lamp(
             brand ?: "",
             model ?: "",

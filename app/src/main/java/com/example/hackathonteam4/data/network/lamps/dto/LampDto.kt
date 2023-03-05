@@ -1,6 +1,6 @@
 package com.example.hackathonteam4.data.network.lamps.dto
 
-data class GetLampResponseDto(
+data class LampDto(
     val brand: String? = "",
     val model: String? = "",
     val lampDescription: String? = "",

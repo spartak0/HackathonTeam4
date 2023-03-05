@@ -2,7 +2,7 @@ package com.example.hackathonteam4.utils
 
 object Constants {
     const val MAX_LENGTH_BARCODE = 13
-    const val SHARED_PREF = "ONBOARDING_SHARED_PREF"
-    const val ON_BOARDING_VAL = "ONBOARDING_VAL"
-    const val BASE_URL = "http://event.surfstudio.ru:8084/"
+    const val SHARED_PREF = "GLOBAL_SHARED_PREF"
+    const val ONBOARDING_VAL = "ONBOARDING_VAL"
+    const val BARCODE_VAL ="BARCODE_VAL"
 }

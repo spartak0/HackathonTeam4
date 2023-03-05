@@ -18,6 +18,7 @@ import com.example.hackathonteam4.ui.navigation.Screen
 import com.example.hackathonteam4.ui.theme.HackathonTeam4Theme
 import com.example.hackathonteam4.ui.theme.spacing
 import com.example.hackathonteam4.utils.Constants
+import com.example.hackathonteam4.utils.SharedPrefHandler
 import com.google.accompanist.pager.ExperimentalPagerApi
 import com.google.accompanist.pager.HorizontalPager
 import com.google.accompanist.pager.rememberPagerState
@@ -48,7 +49,7 @@ fun Onboarding(navController: NavController) {
             FloatingActionButton(
                 onClick = {
                     if (pagerState.currentPage == listOnBoardingText.size - 1) {
-                        putSharedPref(true,context)
+                        SharedPrefHandler(context).putBoolean(Constants.ONBOARDING_VAL,true)
                         navController.navigate(Screen.MainScreen.route)
                     } else scope.launch {
                         pagerState.animateScrollToPage(pagerState.currentPage + 1)
@@ -94,6 +95,6 @@ fun putSharedPref(value: Boolean,context:Context){
     val settings: SharedPreferences =
         context.getSharedPreferences(Constants.SHARED_PREF, Context.MODE_PRIVATE)
     val editor = settings.edit()
-    editor.putBoolean(Constants.ON_BOARDING_VAL, value)
+    editor.putBoolean(Constants.ONBOARDING_VAL, value)
     editor.apply()
 }
