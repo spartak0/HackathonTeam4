@@ -1,6 +1,7 @@
 package com.example.hackathonteam4.di
 
 import com.example.hackathonteam4.data.network.lamps.LampsApi
+import com.example.hackathonteam4.utils.Consts
 import com.squareup.moshi.Moshi
 import dagger.Module
 import dagger.Provides
@@ -15,8 +16,6 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object NetworkModule {
-
-    private const val BASE_URL = "http://event.sufrstudio.ru:8084/api/v1/"
 
     @Provides
     @Singleton
@@ -35,7 +34,7 @@ object NetworkModule {
         client: OkHttpClient,
         moshi: Moshi
     ) : Retrofit = Retrofit.Builder()
-            .baseUrl(BASE_URL)
+            .baseUrl(Consts.BASE_URL)
             .client(client)
             .addConverterFactory(MoshiConverterFactory.create(moshi))
             .build()
