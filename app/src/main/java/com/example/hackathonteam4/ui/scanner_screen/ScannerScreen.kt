@@ -93,6 +93,7 @@ fun ScannerScreen(navController: NavController) {
                             barcodes.forEach { barcode ->
                                 barcode.rawValue?.let { barcodeValue ->
                                     barCodeVal.value = barcodeValue
+                                    Log.d("TAG", "ScannerScreen: $barcodeValue")
                                 }
                             }
                         }
