@@ -8,7 +8,9 @@ import com.example.hackathonteam4.utils.Mapper
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
+import javax.inject.Singleton
 
+@Singleton
 class LampNetworkRepository @Inject constructor(
     private val api: LampsApi,
     private val lampMapper: Mapper<GetLampResponseDto, Lamp>,
